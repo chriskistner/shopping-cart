@@ -43,12 +43,11 @@ class App extends Component {
     })
   }
 
-
   render() {
     return (
       <div>
         <CartHeader />
-        <CartItems items={this.state.cartitems} handleClearCart={this.handleClearCart}/>
+        <CartItems items={this.state.cartitems} handleClearCart={this.handleClearCart} />
         <AddItem products = {this.state.products}  addToCart={this.addToCart} />
         <CartFooter />
       </div>
