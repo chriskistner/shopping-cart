@@ -29,12 +29,27 @@ class App extends Component {
       ]
     }
   }
+
+  addToCart = (item) => {
+    this.setState({
+      cartitems: [...this.state.cartitems, item]
+    })
+  }
+
+  handleClearCart = () => {
+    console.log('executing')
+    this.setState({
+      cartitems: []
+    })
+  }
+
+
   render() {
     return (
       <div>
         <CartHeader />
-        <CartItems items={this.state.cartitems}/>
-        <AddItem products = {this.state.products}/>
+        <CartItems items={this.state.cartitems} handleClearCart={this.handleClearCart}/>
+        <AddItem products = {this.state.products}  addToCart={this.addToCart} />
         <CartFooter />
       </div>
     );
