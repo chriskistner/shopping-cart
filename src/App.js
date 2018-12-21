@@ -43,12 +43,19 @@ class App extends Component {
     })
   }
 
+  handleDelete = (item) => {
+    const newCart = this.state.cartitems.filter(target => {return target !== item ? {...target} : null});
+    this.setState({
+      cartitems: newCart
+    })
+  }
+
   render() {
     return (
       <div>
         <CartHeader />
-        <CartItems items={this.state.cartitems} handleClearCart={this.handleClearCart} />
-        <AddItem products = {this.state.products}  addToCart={this.addToCart} />
+        <CartItems items={this.state.cartitems} handleClearCart={this.handleClearCart} handleDelete={this.handleDelete}/>
+        <AddItem products = {this.state.products} addToCart={this.addToCart} />
         <CartFooter />
       </div>
     );

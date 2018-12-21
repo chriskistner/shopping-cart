@@ -26,13 +26,14 @@ function CartItems(props) {
             <h1>Items</h1>
             <div className="collection-item">
             <div className="row border text-white bg-dark">
-                <div className="col-md-8">PRODUCT NAME</div>
+                <div className="col-md-6">PRODUCT NAME</div>
                 <div className="col-md-2">PRODUCT PRICE</div>
                 <div className="col-md-2">QUANTITY</div>
+                <div className="col-md-2">REMOVE</div>
             </div>
         </div>
             {
-          props.items.map(item => <CartItem cartitem={item} />)
+          props.items.map(item => <CartItem cartitem={item}  deleteitem={props.handleDelete} />)
         }
         {
             shoppingCart.length === 0 ? cartIsEmpty :  cartHasStuff
